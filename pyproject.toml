@@ -7,10 +7,14 @@ requires-python = ">=3.13"
 dependencies = [
     "grandalf==0.8",
     "langchain[openai]==0.3.27",
+    "langchain-ollama",
     "langgraph==0.6.6",
     "langgraph-checkpoint-sqlite==2.0.11",
     "langgraph-cli[inmem]==0.4.0",
     "python-dotenv==1.1.1",
+
+    # -- 로직 테스트용 라이브러리
+    "pytest==8.4.2"
 ]
 
 [dependency-groups]
