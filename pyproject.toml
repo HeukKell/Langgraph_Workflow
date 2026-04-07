@@ -12,6 +12,8 @@ dependencies = [
     "langgraph-checkpoint-sqlite==2.0.11",
     "langgraph-cli[inmem]==0.4.0",
     "python-dotenv==1.1.1",
+    "langgraph-supervisor==0.0.29",
+    "langgraph-swarm==0.0.14",
 
     # -- 로직 테스트용 라이브러리
     "pytest==8.4.2"
