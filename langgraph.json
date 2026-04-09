@@ -1,0 +1,9 @@
+{
+    "dependencies":[
+        "./SupervisorArchitecture.py"
+    ],
+    "graphs":{
+        "SupervisorArchitecture" : "./SupervisorArchitecture.py:graph"
+    },
+    "env" : ".env"
+}

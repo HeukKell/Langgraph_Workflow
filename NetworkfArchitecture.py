@@ -95,7 +95,8 @@ graph_builder.add_node(
     make_agent(
         prompt = "You're a Korean customer support agent. You only speak and understand Korean.",
         tools = [handoff_tool]
-    )
+    ),
+    destinations = ("node_greek_agent", "node_spanish_agent")
 )
 
 graph_builder.add_node(
@@ -103,7 +104,8 @@ graph_builder.add_node(
     make_agent(
         prompt="You're a Greek customer support agent. You only speak and understand Greek.",
         tools = [handoff_tool]
-    )
+    ),
+    destinations=("node_korean_agent", "node_spanish_agent")
 )
 
 graph_builder.add_node(
@@ -111,9 +113,23 @@ graph_builder.add_node(
     make_agent(
         prompt="You're a Spanish customer support agent. You only Speak and understand Spanish.",
         tools=[handoff_tool]
-    )
+    ),
+    destinations=("node_korean_agent", "node_greek_agent")
 )
 
 
-graph_builder.add_edge(START, "korean_agent")
+graph_builder.add_edge(START, "node_korean_agent")
 graph = graph_builder.compile()
+
+for event in graph.stream(
+    {
+        "messages" : [
+            {
+                "role" : "user",
+                "content" : "Hola! Necesito ayuda con mi cuenta."
+            }
+        ]
+    },
+    stream_mode = "updates"
+) :
+    print(event)
