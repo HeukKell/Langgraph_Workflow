@@ -1,9 +1,9 @@
 {
     "dependencies":[
-        "./SupervisorArchitecture.py"
+        "./SupervisorAsTools.py"
     ],
     "graphs":{
-        "SupervisorArchitecture" : "./SupervisorArchitecture.py:graph"
+        "SupervisorAsTools" : "./SupervisorAsTools.py:graph"
     },
     "env" : ".env"
 }
